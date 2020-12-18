@@ -1,4 +1,5 @@
 import React from "react";
+import AdditionalInfo from "./AdditionalInfo";
 import "./App.css";
 
 class App extends React.Component {
@@ -10,8 +11,10 @@ class App extends React.Component {
     dayOfWeek: "",
     weekOfYear: "",
     date: "",
+    timeOfDay: "",
     quote: "",
     quoteAuthor: "",
+    showDetails: false,
   };
 
   getUserIp = () => {
@@ -39,6 +42,7 @@ class App extends React.Component {
           weekOfYear: timeData.week,
           week: timeData.week,
           date: `${timeData.month_full} ${timeData.day} ${timeData.year}`,
+          timeOfDay: timeData.timeday_gen,
         });
       });
   };
@@ -55,6 +59,12 @@ class App extends React.Component {
       );
   };
 
+  showHideDetails = () => {
+    this.setState((state) => ({
+      showDetails: !state.showDetails,
+    }));
+  };
+
   componentDidMount() {
     this.getUserIp();
     this.getTimezoneData();
@@ -65,31 +75,40 @@ class App extends React.Component {
     const {
       city,
       region,
-      timezone,
       hour,
-      dayOfWeek,
-      week,
-      date,
       quote,
       quoteAuthor,
+      timezone,
+      dayOfWeek,
+      weekOfYear,
+      date,
+      timeOfDay,
+      showDetails,
     } = this.state;
     return (
       <div className="App">
         <div>
-          <p>{city}</p>
-          <p>{region}</p>
-          <p>{timezone}</p>
-        </div>
-        <div>
+          <p>GOOD {timeOfDay.toUpperCase()}, IT'S CURRENTLY</p>
           <p>{hour}</p>
-          <p>{dayOfWeek}</p>
-          <p>{week}</p>
-          <p>{date}</p>
+          <p>
+            IN {city}, {region}
+          </p>
         </div>
+        <div></div>
         <div>
           <p>{quote}</p>
           <p>{quoteAuthor}</p>
+          <button onClick={this.getRandomQuote}>REFRESH</button>
         </div>
+        <button onClick={this.showHideDetails}>MORE</button>
+        {showDetails && (
+          <AdditionalInfo
+            timezone={timezone}
+            dayOfWeek={dayOfWeek}
+            weekOfYear={weekOfYear}
+            date={date}
+          />
+        )}
       </div>
     );
   }
