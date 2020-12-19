@@ -2,6 +2,18 @@ import React from "react";
 import AdditionalInfo from "./AdditionalInfo";
 import "./App.css";
 
+const dayTimeStyle = {
+  backgroundImage: `url('${process.env.PUBLIC_URL}/assets/desktop/bg-image-day.png')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+};
+
+const nightTimeStyle = {
+  backgroundImage: `url('${process.env.PUBLIC_URL}/assets/desktop/bg-image-nighttime.jpg')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+};
+
 class App extends React.Component {
   state = {
     city: "",
@@ -86,27 +98,66 @@ class App extends React.Component {
       showDetails,
     } = this.state;
     return (
-      <div className="App">
-        <div>
-          <p>GOOD {timeOfDay.toUpperCase()}, IT'S CURRENTLY</p>
-          <p>{hour}</p>
-          <p>
-            IN {city}, {region}
-          </p>
+      <div
+        className="App"
+        style={timeOfDay === "evening" ? nightTimeStyle : dayTimeStyle}
+      >
+        <div
+          className={showDetails ? "mainSectionRetracted" : "mainSectionFull"}
+        >
+          <div className="container">
+            <div
+              className={showDetails ? "quoteContainerHide" : "quoteContainer"}
+            >
+              <div>
+                <p className="quote">" {quote} "</p>
+                <p className="quoteAuthor">{quoteAuthor}</p>
+              </div>
+              <div>
+                <div className="refreshBtn" onClick={this.getRandomQuote}>
+                  <i className="fas fa-sync-alt"></i>
+                </div>
+              </div>
+            </div>
+            <div className="timeOfDay">
+              <div className="greeting">
+                {timeOfDay === "evening" ? (
+                  <img
+                    src={`${process.env.PUBLIC_URL}/assets/desktop/icon-moon.svg`}
+                  />
+                ) : (
+                  <img
+                    src={`${process.env.PUBLIC_URL}/assets/desktop/icon-sun.svg`}
+                  />
+                )}
+
+                <span>GOOD {timeOfDay.toUpperCase()}, IT'S CURRENTLY</span>
+              </div>
+              <p className="hour">{hour}</p>
+              <p className="location">
+                IN {city.toUpperCase()}, {region}
+              </p>
+            </div>
+          </div>
+          <div className="detailsBtn" onClick={this.showHideDetails}>
+            {showDetails ? "LESS" : "MORE"}
+            <img
+              src={
+                showDetails
+                  ? `${process.env.PUBLIC_URL}/assets/desktop/icon-arrow-up.svg`
+                  : `${process.env.PUBLIC_URL}/assets/desktop/icon-arrow-down.svg`
+              }
+            />
+          </div>
         </div>
-        <div></div>
-        <div>
-          <p>{quote}</p>
-          <p>{quoteAuthor}</p>
-          <button onClick={this.getRandomQuote}>REFRESH</button>
-        </div>
-        <button onClick={this.showHideDetails}>MORE</button>
+
         {showDetails && (
           <AdditionalInfo
             timezone={timezone}
             dayOfWeek={dayOfWeek}
             weekOfYear={weekOfYear}
             date={date}
+            timeOfDay={timeOfDay}
           />
         )}
       </div>

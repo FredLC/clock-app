@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100vh;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.mainSectionFull {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 80px;
+}
+
+.mainSectionRetracted {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 50%;
+  padding: 40px 100px;
+}
+
+.quoteContainerHide {
+  display: none;
+}
+
+.quoteContainer {
+  font-size: 18px;
+  max-width: 540px;
+  display: flex;
+}
+
+.quote {
+  line-height: 28px;
+}
+
+.quoteAuthor {
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.refreshBtn {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.timeOfDay {
+  margin-top: 120px;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  margin-bottom: -15px;
+}
+
+.greeting span {
+  margin-left: 15px;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+.hour {
+  font-size: 200px;
+  letter-spacing: -5px;
+  font-weight: 700;
+}
+
+.location {
+  font-size: 24px;
+  letter-spacing: 4.5px;
+}
+
+.detailsBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  height: 60px;
+  background-color: white;
+  border-radius: 28px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  letter-spacing: 5px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.additionalInfo {
+  height: 50vh;
+  width: 100%;
+  padding: 60px 80px;
+  display: flex;
+  justify-content: space-between;
+  transition: 1s;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.secondColumn {
+  margin-right: -125px;
+  margin-left: 75px;
+}
+
+.firstInfoContainer {
+  margin-bottom: 40px;
+}
+
+.label {
+  font-size: 15px;
+}
+
+.info {
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.separator {
+  width: 1px;
+  height: 250px;
+  background-color: #979797;
+}
