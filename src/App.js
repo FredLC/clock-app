@@ -29,6 +29,8 @@ class App extends React.Component {
     showDetails: false,
   };
 
+  intervalID;
+
   getUserIp = () => {
     const apiUrl = "https://freegeoip.app/json/";
     fetch(apiUrl)
@@ -56,6 +58,7 @@ class App extends React.Component {
           date: `${timeData.month_full} ${timeData.day} ${timeData.year}`,
           timeOfDay: timeData.timeday_gen,
         });
+        console.log("Fetched timezone");
       });
   };
 
@@ -81,6 +84,11 @@ class App extends React.Component {
     this.getUserIp();
     this.getTimezoneData();
     this.getRandomQuote();
+    this.intervalID = setInterval(this.getTimezoneData.bind(this), 60000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   render() {
