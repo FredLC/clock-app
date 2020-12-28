@@ -159,15 +159,30 @@ class App extends React.Component {
           </div>
         </div>
 
-        {showDetails && (
-          <AdditionalInfo
-            timezone={timezone}
-            dayOfWeek={dayOfWeek}
-            weekOfYear={weekOfYear}
-            date={date}
-            timeOfDay={timeOfDay}
-          />
-        )}
+        <AdditionalInfo
+          timezone={timezone}
+          dayOfWeek={dayOfWeek}
+          weekOfYear={weekOfYear}
+          date={date}
+          timeOfDay={timeOfDay}
+          showDetails={showDetails}
+        />
+
+        {/* <Transition in={showDetails} timeout={duration}>
+          {(state) => (
+            <AdditionalInfo
+              timezone={timezone}
+              dayOfWeek={dayOfWeek}
+              weekOfYear={weekOfYear}
+              date={date}
+              timeOfDay={timeOfDay}
+              style={{
+                ...defaultStyle,
+                ...transitionStyles[state],
+              }}
+            />
+          )}
+        </Transition> */}
       </div>
     );
   }
