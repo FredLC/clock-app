@@ -58,7 +58,6 @@ class App extends React.Component {
           date: `${timeData.month_full} ${timeData.day} ${timeData.year}`,
           timeOfDay: timeData.timeday_gen,
         });
-        console.log("Fetched timezone");
       });
   };
 

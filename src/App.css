@@ -9,6 +9,7 @@
   height: 100vh;
   color: white;
   font-family: "Inter", sans-serif;
+  overflow: hidden;
 }
 
 .mainSectionFull {
@@ -34,6 +35,7 @@
   font-size: 18px;
   max-width: 540px;
   display: flex;
+  margin-bottom: 120px;
 }
 
 .quote {
@@ -48,10 +50,6 @@
 .refreshBtn {
   margin-top: 5px;
   margin-left: 15px;
-}
-
-.timeOfDay {
-  margin-top: 120px;
 }
 
 .greeting {
@@ -129,4 +127,80 @@
   width: 1px;
   height: 250px;
   background-color: #979797;
+}
+
+@media (max-width: 1024px) {
+  .mainSectionFull {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px;
+  }
+
+  .quoteContainer {
+    max-width: 100%;
+  }
+
+  .detailsBtn {
+    margin-top: 50px;
+  }
+
+  .additionalInfo {
+    padding: 60px;
+  }
+
+  .separator {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainSectionFull {
+    padding: 30px;
+  }
+
+  .mainSectionRetracted {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quoteContainer {
+    max-width: 80%;
+  }
+
+  .hour {
+    font-size: 150px;
+    margin-top: 20px;
+  }
+
+  .detailsBtn {
+    margin-bottom: 40px;
+  }
+
+  .additionalInfo {
+    display: block;
+    padding: 30px;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .secondColumn {
+    margin: 0;
+  }
+
+  .firstInfoContainer {
+    margin: 0;
+  }
+
+  .infoContainer {
+    margin-top: 20px;
+  }
+
+  .info {
+    font-size: 30px;
+  }
 }
