@@ -62,7 +62,7 @@ class App extends React.Component {
   };
 
   getRandomQuote = () => {
-    const apiUrl = "http://api.quotable.io/random";
+    const apiUrl = "https://api.quotable.io/random";
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) =>
