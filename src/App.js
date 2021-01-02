@@ -62,12 +62,12 @@ class App extends React.Component {
   };
 
   getRandomQuote = () => {
-    const apiUrl = "http://quotes.stormconsultancy.co.uk/random.json";
+    const apiUrl = "http://api.quotable.io/random";
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) =>
         this.setState({
-          quote: data.quote,
+          quote: data.content,
           quoteAuthor: data.author,
         })
       );
