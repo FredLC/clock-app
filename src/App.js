@@ -45,7 +45,7 @@ class App extends React.Component {
   };
 
   getTimezoneData = () => {
-    const apiUrl = `https://timezoneapi.io/api/ip/?token=${process.env.REACT_APP_API_KEY}`;
+    const apiUrl = `https://timezoneapi.io/api/ip/?token=${process.env.REACT_APP_TIMEZONE_API_KEY}`;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
