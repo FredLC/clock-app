@@ -137,16 +137,27 @@
     padding: 50px;
   }
 
+  .mainSectionRetracted {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+  }
+
   .quoteContainer {
     max-width: 100%;
   }
 
   .detailsBtn {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 
   .additionalInfo {
-    padding: 60px;
+    padding: 50px;
+  }
+
+  .hour {
+    font-size: 175px;
   }
 
   .separator {
