@@ -131,10 +131,12 @@ class App extends React.Component {
                 {timeOfDay === "evening" ? (
                   <img
                     src={`${process.env.PUBLIC_URL}/assets/desktop/icon-moon.svg`}
+                    alt="moon icon"
                   />
                 ) : (
                   <img
-                    src={`${process.env.PUBLIC_URL}/assets/desktop/icon-sun.svg`}
+                      src={`${process.env.PUBLIC_URL}/assets/desktop/icon-sun.svg`}
+                      alt="sun icon"
                   />
                 )}
 
@@ -154,6 +156,7 @@ class App extends React.Component {
                   ? `${process.env.PUBLIC_URL}/assets/desktop/icon-arrow-up.svg`
                   : `${process.env.PUBLIC_URL}/assets/desktop/icon-arrow-down.svg`
               }
+              alt=""
             />
           </div>
         </div>
